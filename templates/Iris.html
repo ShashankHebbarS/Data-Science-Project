@@ -1,0 +1,50 @@
+<html>  
+
+<head>  
+
+  <title> My Project Demo </title> 
+  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+
+</head>  
+
+<style type="text/css">
+    
+  .main-content{
+    padding-left: 20px;
+  }
+  input{
+    width: 20%;
+  }
+
+</style>
+
+<body>  
+
+  <div class="main-content">
+
+    <h3> Iris Flower Classification </h3>
+    <form action='/results' method='POST'>
+     
+      <input type="text" id="Sepal-Length" name="Sepal Length" placeholder="Enter Sepal Length"><br>
+
+      <br>
+      <input type="text" id="Sepal-Width" name="Sepal Width" placeholder="Enter Sepal Width"><br>
+
+      <br>
+      <input type="text" id="Petal-Length" name="Petal Length" placeholder="Enter Petal Length"><br>
+
+      <br>
+      <input type="text" id="Petal-Width" name="Petal Width" placeholder="Enter Petal Width"><br><br>
+
+      <button class="btn btn-primary" type="submit" value="Submit"> Predict </button>
+
+    </form>
+
+    <h1> {{ predictions }} </h1>
+
+  </div>
+
+</body>  
+</html>  
