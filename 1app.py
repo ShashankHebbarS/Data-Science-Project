@@ -1,6 +1,5 @@
-from flask import * 
+from flask import Flask, render_template, request
 import numpy as np
-import os
 import pickle
   
 app = Flask(__name__)
@@ -11,7 +10,7 @@ def home():
 
 
 
-@app.route('/IrisClass', methods = ['GET', 'POST'])
+@app.route('/IrisClass', methods=['GET', 'POST'])
 def IrisClass():
     if request.method == 'POST':
         inp = request.form.values()
@@ -32,16 +31,17 @@ def irispred(inp):
 @app.route('/TitanicPred', methods=['GET', 'POST'])
 def TitanicPred():
     if request.method == 'POST':
-        inp = request.form.values()
-        inp = list(map(float, inp))
+        inp = list(map(float, request.form.values()))
         result = titanicpred(inp)
 
         if result == 0:
-            return render_template('Titanic.html', predictions='The Passenger Died')
+            pred='The Passenger Died'
 
         else:
-            return render_template('Titanic.html', predictions='The Passenger Survived')
+            pred='The Passenger Survived'
 
+        return render_template('Titanic.html', predictions=pred)
+        
     return render_template('Titanic.html')
 
 def titanicpred(inp):
@@ -51,5 +51,4 @@ def titanicpred(inp):
     return result[0]
 
 if __name__ =='__main__':  
-    app.run(debug = True)
- 
+    app.run(debug = False)
