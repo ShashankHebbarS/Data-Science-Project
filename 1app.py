@@ -7,22 +7,26 @@ app = Flask(__name__)
 def home():  
     return render_template("Home.html")
 
-
-
-@app.route('/IrisClass', methods=['GET', 'POST'])
+@app.route('/IrisClass')
 def IrisClass():
+    return render_template('Iris.html')
+
+@app.route('/irisresult', methods=['POST'])
+def irisresult():
     if request.method == 'POST':
         inp = request.form.values()
 
         inp = list(map(float, inp))
         result = predictor.irispred(inp)
 
-        return render_template('Iris.html', predictions=result)
+        return render_template('results.html', predictions=result)
 
-    return render_template('Iris.html')
-
-@app.route('/TitanicPred', methods=['GET', 'POST'])
+@app.route('/TitanicPred')
 def TitanicPred():
+    return render_template('Titanic.html')
+
+@app.route('/titanicresult', methods=['POST'])
+def titanicresult():
     if request.method == 'POST':
         inp = list(map(float, request.form.values()))
         result = predictor.titanicpred(inp)
@@ -33,9 +37,7 @@ def TitanicPred():
         else:
             pred='The Passenger Survived'
 
-        return render_template('Titanic.html', predictions=pred)
-
-    return render_template('Titanic.html')
+        return render_template('results.html', predictions=pred)
 
 if __name__ =='__main__':  
-    app.run(debug = False)
+    app.run(debug = True)
