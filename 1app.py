@@ -11,18 +11,8 @@ def home():
 
 
 
-@app.route('/IrisClass')
+@app.route('/IrisClass', methods = ['GET', 'POST'])
 def IrisClass():
-    return render_template('Iris.html')
-
-def irispred(inp):
-    arr = np.array(inp).reshape(1, 4)
-    iris_model = pickle.load(open('iris.pkl', 'rb'))
-    result = iris_model.predict(arr)
-    return result[0]
-
-@app.route('/IrisClass', methods=['POST'])
-def IrisResult():
     if request.method == 'POST':
         inp = request.form.values()
 
@@ -31,20 +21,16 @@ def IrisResult():
 
         return render_template('Iris.html', predictions=result)
 
+    return render_template('Iris.html')
 
-
-@app.route('/TitanicPred')
-def TitanicPred():
-    return render_template('Titanic.html')
-
-def titanicpred(inp):
-    arr = np.array(inp).reshape(1, 6)
-    titanic_model = pickle.load(open('titanic.pkl', 'rb'))
-    result = titanic_model.predict(arr)
+def irispred(inp):
+    arr = np.array(inp).reshape(1, 4)
+    iris_model = pickle.load(open('iris.pkl', 'rb'))
+    result = iris_model.predict(arr)
     return result[0]
 
-@app.route('/TitanicPred', methods=['POST'])
-def titanicresult():
+@app.route('/TitanicPred', methods=['GET', 'POST'])
+def TitanicPred():
     if request.method == 'POST':
         inp = request.form.values()
         inp = list(map(float, inp))
@@ -56,7 +42,14 @@ def titanicresult():
         else:
             return render_template('Titanic.html', predictions='The Passenger Survived')
 
+    return render_template('Titanic.html')
+
+def titanicpred(inp):
+    arr = np.array(inp).reshape(1, 6)
+    titanic_model = pickle.load(open('titanic.pkl', 'rb'))
+    result = titanic_model.predict(arr)
+    return result[0]
 
 if __name__ =='__main__':  
-    app.run(debug = False)
+    app.run(debug = True)
  
