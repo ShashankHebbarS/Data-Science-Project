@@ -2,22 +2,17 @@
 
 <head>  
 
-  <title> My Project Demo </title>
+  <link rel="stylesheet" href='/static/titanic.css' />
+  <title> Titanic Dataset </title> 
+
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>  
 
-<style type="text/css">
-    
-  .main-content{
-    padding-left: 20px;
-  }
-  input{
-    width: 20%;
-  }
 
-</style>
+</head>  
 
 <body>  
 
@@ -26,25 +21,27 @@
     <h3> Titanic Passenger Survival Prediction </h3>
     <form action='/TitanicPred' method='POST'>
      
-    	<label for="Gender"> </label>
-
-		<select name="pclass" id="pclass" placeholder="Enter Passenger Class">
+ 
+    <br>
+  <div class="select">
+		<select class="select" name="pclass" id="pclass" placeholder="Enter Passenger Class">
 			<option value="1"> Class 1 </option>
 			<option value="2"> Class 2 </option>
 			<option value="3"> Class 3 </option>
 		</select>
-    	<br>
+	</div>
+	<br>
 
-    	<br>
-  		<label for="Gender"> </label>
+	<div class="select">
+  	
 
-		<select name="gender" id="gender" placeholder="Enter Gender">
+		<select name="gender" id="gender">
 			<option value="0"> Female </option>
 			<option value="1"> Male </option>
 		</select>
-    	<br>
+  </div>
+	<br>
 
-		<br>
 		<input type="text" id="Age" name="Age" placeholder="Enter Age">
 		<br>
 
@@ -53,14 +50,13 @@
 		<br>
 
 		<br>
-		<label for="embarked">Embarked</label>
-
+		<div class="select">
 		<select name="embarked" id="embarked">
 			<option value="0"> Cherbourg (0) </option>
 			<option value="1"> Queenstown (1) </option>
 			<option value="2"> Southampton (2) </option>
 		</select>
-		<br>
+		</div>
 
 		<br>
 		<input type="text" id="Fsize" name="Family Size" placeholder="Enter Family Size">
@@ -75,6 +71,5 @@
     <h1> {{ predictions }} </h1>
 
   </div>
-
 </body>  
 </html>  

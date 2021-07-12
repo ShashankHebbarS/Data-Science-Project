@@ -1,23 +1,15 @@
 <html>  
 
 <head>  
-
-  <title> My Project Demo </title>
+<link rel="stylesheet" href='/static/iris.css' />
+  <title> Iris Classification </title> 
+  <!-- Latest compiled and minified CSS -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>  
 
-<style type="text/css">
-    
-  .main-content{
-    padding-left: 20px;
-  }
-  input{
-    width: 20%;
-  }
-
-</style>
 
 <body>  
 
@@ -26,27 +18,21 @@
     <h3> Iris Flower Classification </h3>
     <form action='/IrisClass' method='POST'>
      
-      <input type="text" id="Sepal-Length" name="Sepal Length" placeholder="Enter Sepal Length">
-      <br>
+      <input type="text" id="Sepal-Length" name="Sepal Length" placeholder="Enter Sepal Length" pattern="[0-9].[0-9]" title="Enter value in decimal" required><br>
 
       <br>
-      <input type="text" id="Sepal-Width" name="Sepal Width" placeholder="Enter Sepal Width">
-      <br>
+      <input type="text" id="Sepal-Width" name="Sepal Width" placeholder="Enter Sepal Width" pattern="[0-9].[0-9]" required><br>
 
       <br>
-      <input type="text" id="Petal-Length" name="Petal Length" placeholder="Enter Petal Length">
-      <br>
+      <input type="text" id="Petal-Length" name="Petal Length" placeholder="Enter Petal Length" pattern="[0-9].[0-9]" required><br>
 
       <br>
-      <input type="text" id="Petal-Width" name="Petal Width" placeholder="Enter Petal Width">
-      <br>
+      <input type="text" id="Petal-Width" name="Petal Width" placeholder="Enter Petal Width" pattern="[0-9].[0-9]" required><br><br>
 
-      <br>
       <button class="btn btn-primary" type="submit" value="Submit"> Predict </button>
-      <br>
 
     </form>
-
+    <br>
     <h1> {{ predictions }} </h1>
 
   </div>

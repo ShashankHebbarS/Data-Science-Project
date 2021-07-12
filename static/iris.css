@@ -1,0 +1,10 @@
+.main-content {
+  padding-left: 30px;
+}
+input {
+  width: 200px;
+  box-shadow: 1px 1px 1px black;
+}
+input:hover {
+  color: #f1356d;
+}
