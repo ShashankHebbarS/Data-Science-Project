@@ -16,7 +16,7 @@
   <div class="main-content">
 
     <h3> Iris Flower Classification </h3>
-    <form action='/irisresult' method='POST'>
+    <form action='/IrisClass' method='POST'>
      
       <input type="text" id="Sepal-Length" name="Sepal Length" placeholder="Enter Sepal Length" pattern="[0-9].[0-9]" title="Enter value in decimal" required><br>
 
@@ -33,6 +33,8 @@
 
     </form>
 
+    <h1> {{ predictions }} </h1>
+    
   </div>
 
 </body>  
